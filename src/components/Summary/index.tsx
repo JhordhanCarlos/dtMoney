@@ -47,7 +47,7 @@ export function Summary() {
                 </header>
                 <strong>- 
                     {new Intl.NumberFormat('pt-BR', {
-                        style: 'currency',
+                        style: 'currency', 
                         currency: 'BRL'
                     }).format(summary.withdraws)}
                 </strong>
