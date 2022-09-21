@@ -19,6 +19,7 @@ interface TransactionsProviderPropos {
 interface TransactionContextData {
     transactions: Transaction[];
     createTransaction: (transaction: TransactionInput) => Promise<void>;
+    removeTransaction: (transactionDelete: Transaction) => void;
 }
 
 const TransactionsContext = createContext<TransactionContextData>(
@@ -46,8 +47,17 @@ export function TransactionsProvider({ children }: TransactionsProviderPropos) {
         ]);
     }
 
+    async function removeTransaction(transactionDelete: Transaction){
+        
+        const respose = await api.delete('/transactions', {
+            data: transactionDelete.id
+        }).then(() => {
+            console.log(respose)
+        })
+    }
+
     return (
-        <TransactionsContext.Provider value={{ transactions, createTransaction }}>
+        <TransactionsContext.Provider value={{ transactions, createTransaction, removeTransaction }}>
             { children }
         </TransactionsContext.Provider>
     );

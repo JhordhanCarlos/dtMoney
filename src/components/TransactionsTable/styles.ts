@@ -6,6 +6,9 @@ export const Container = styled.div`
     table {
         width: 100%;
         border-spacing: 0 0.5rem;
+        border-radius: 0.25rem;
+        border-color: var(--blue);
+        padding: 1rem;
 
         th {
             color: var(--text-body);
@@ -33,6 +36,16 @@ export const Container = styled.div`
             &.withdraw {
                 color: var(--red);
             }
+        }
+
+        button {
+            padding: 0.25rem;
+            font-size: 1rem;
+            color: #FFF;
+            background: var(--red);
+            border: 0;
+            padding: 0 2rem;
+            border-radius: 0.25rem;
         }
     }
 `;

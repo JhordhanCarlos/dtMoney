@@ -1,9 +1,8 @@
-import { useContext } from "react";
 import { useTransactions } from "../../hooks/useTransactions";
 import { Container } from "./styles";
 
 export function TransactionsTable() {
-    const { transactions } = useTransactions();
+    const { transactions, removeTransaction } = useTransactions();
 
     return (
         <Container>
@@ -32,6 +31,9 @@ export function TransactionsTable() {
                                     {new Intl.DateTimeFormat('pt-BR').format(
                                         new Date(transaction.createdAt)
                                     )}
+                                </td>
+                                <td>
+                                    <button type="button" onClick={() => removeTransaction(transaction)}>Excluir</button>
                                 </td>
                             </tr>
                         ))}
